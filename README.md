@@ -1,11 +1,13 @@
 # John Smilga Course -
 
+![Design preview for the Random-user coding challenge](./images/random-user.png)
+
 ## Welcome! 👋
 
 ### Links
 
-- Solution URL: [solution]()
-- Live Site URL: [live site]()
+- Solution URL: [solution](https://github.com/aeorherhe/random-user.git)
+- Live Site URL: [live site](https://aeorherhe-random-user.netlify.app)
 
 ### Built with
 

@@ -48,7 +48,7 @@ body {
   padding: 0.25rem 2rem;
   position: relative;
   text-align: center;
-  width: 90vw;
+  width: 95vw;
 }
 
 .card-top {
@@ -92,8 +92,9 @@ body {
   border: none;
   color: rgb(110, 140, 153);
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   outline: none;
+  transition: var(--transition);
   & span:hover,
   &:focus {
     transition: var(--transition);
@@ -102,7 +103,7 @@ body {
   &.active {
     color: var(--btn);
   }
-  @media (min-width: 50rem) {
+  @media (min-width: 45rem) {
     transition: var(--transition);
     font-size: 2.5rem;
   }
