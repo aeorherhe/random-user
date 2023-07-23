@@ -1,4 +1,4 @@
-# John Smilga Course -
+# John Smilga Course - Coded by Abraham Orherhe
 
 ![Design preview for the Random-user coding challenge](./images/random-user.png)
 

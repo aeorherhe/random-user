@@ -10,29 +10,27 @@ const btns = [...getAll(".icon-btn")];
 
 // Fecth users func
 const fetchUsers = async () => {
-  try {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    const profile = data.results[0];
-    //   destructuring
-    const { phone, email } = profile;
-    const { first, last } = profile.name;
-    let { date: birthday } = profile.dob;
-    birthday = birthday.slice(0, birthday.indexOf("T"));
-    birthday = birthday.replaceAll("-", "/");
-    const { password } = profile.login;
-    const { large: img } = profile.picture;
-    const { number, name: streetName } = profile.location.street;
-    return {
-      phone,
-      email,
-      name: `${first} ${last}`,
-      birthday,
-      password,
-      img,
-      address: `${number} ${streetName}`,
-    };
-  } catch (error) {}
+  const resp = await fetch(url);
+  const data = await resp.json();
+  const profile = data.results[0];
+  //   destructuring
+  const { phone, email } = profile;
+  const { first, last } = profile.name;
+  let { date: birthday } = profile.dob;
+  birthday = birthday.slice(0, birthday.indexOf("T"));
+  birthday = birthday.replaceAll("-", "/");
+  const { password } = profile.login;
+  const { large: img } = profile.picture;
+  const { number, name: streetName } = profile.location.street;
+  return {
+    phone,
+    email,
+    name: `${first} ${last}`,
+    birthday,
+    password,
+    img,
+    address: `${number} ${streetName}`,
+  };
 };
 
 // display Users func
