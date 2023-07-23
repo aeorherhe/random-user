@@ -8,6 +8,7 @@ const profileTitle = get(".profile-title");
 const profileImg = get(".profile-img");
 const btns = [...getAll(".icon-btn")];
 
+// Fecth users func
 const fetchUsers = async () => {
   try {
     const resp = await fetch(url);
@@ -34,8 +35,8 @@ const fetchUsers = async () => {
   } catch (error) {}
 };
 
+// display Users func
 const displayUsers = (user) => {
-  //   const birthday = user.birthday.slice(0, user.birthday.indexOf("T"));
   profileImg.src = user.img;
   profileInfo.textContent = user.name;
   profileTitle.textContent = `My name is `;
@@ -43,7 +44,6 @@ const displayUsers = (user) => {
   btns[0].classList.add("active");
   btns.forEach((btn) => {
     const label = btn.dataset.label;
-    // console.log(label);
     btn.addEventListener("click", () => {
       profileTitle.textContent = `My ${label} is `;
       profileInfo.textContent = user[label];
@@ -53,9 +53,9 @@ const displayUsers = (user) => {
   });
 };
 
+// show users func
 const showUser = async () => {
   const data = await fetchUsers();
-  //   console.log(data);
   displayUsers(data);
 };
 
