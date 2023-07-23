@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* general variables */
+  --boxShadow: 0 0 5px rgb(250, 234, 230);
+  --boxShadow2: 0px 0px 50px rgba(150, 150, 150, 0.3);
+  --transition: all 0.3s linear;
+  --transition2: all 0.5s linear;
+  --border: 2px solid #1789db;
+  --border2: 1px solid rgb(98, 96, 96, 0.5);
+  --border3: 2px solid rgb(9, 224, 88);
+
+  /* variables for this project */
+  --background: hsl(212, 33%, 89%);
+  --White: hsl(0, 0%, 100%);
+  --btn: #1789db;
+  --hero-backgorund: #4a4a4a;
+}
+
+body {
+  display: grid;
+  font-family: "Roboto", "Open Sans", Arial, Helvetica, sans-serif;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.hero-ctn {
+  background: var(--hero-backgorund);
+  height: 50vh;
+  width: 100vw;
+}
+
+.card {
+  background: var(--White);
+  border-radius: 0.5rem;
+  box-shadow: var(--boxShadow);
+  margin: 0 auto;
+  margin-top: -13rem;
+  max-width: 45rem;
+  padding: 0.25rem 2rem;
+  position: relative;
+  text-align: center;
+  width: 90vw;
+}
+
+.card-top {
+  border-radius: 0.5rem;
+  background-color: var(--background);
+  height: 8rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-bottom: var(--border2);
+}
+
+.img-ctn img {
+  background-color: var(--White);
+  border-radius: 50%;
+  height: 8.5rem;
+  margin: 2rem;
+  object-fit: cover;
+  outline: var(--border2);
+  padding: 0.35rem;
+  position: relative;
+  width: 8.5rem;
+  z-index: 1;
+}
+
+.card h2 {
+  font-weight: 400;
+  margin: 0.75rem;
+}
+
+.contacts-ctn {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin: 1.2rem 0 0;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: rgb(110, 140, 153);
+  cursor: pointer;
+  font-size: 2rem;
+  outline: none;
+  & span:hover,
+  &:focus {
+    transition: var(--transition);
+    color: var(--btn);
+  }
+  &.active {
+    color: var(--btn);
+  }
+  @media (min-width: 50rem) {
+    transition: var(--transition);
+    font-size: 2.5rem;
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  margin: 2rem 0;
+  background-color: #1789db;
+  font-size: 1rem;
+  color: var(--White);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  transition: var(--transition2);
+  &:hover {
+    background-color: #102b3e;
+  }
+}
+
+/* footer styles */
+.my-profile {
+  background-color: hsl(228, 59%, 16%);
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  align-self: self-end;
+}
+
+.my-profile > a {
+  cursor: pointer;
+  color: hsl(51, 79%, 45%);
+  text-decoration: none;
+}
+
+.my-profile-icons a {
+  cursor: pointer;
+  color: var(--White);
+  display: inline-block;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .my-profile {
+    font-size: 12px;
+  }
+
+  .my-profile-icons a:first-of-type,
+  .my-profile-icons a:last-of-type {
+    display: none;
+  }
+}

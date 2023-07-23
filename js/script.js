@@ -1,0 +1,63 @@
+// SELECT ELEMENTS
+import { getAll, get } from "./getElements.js";
+
+const url = "https://randomuser.me/api/";
+const randomuser = get(".random-btn");
+const profileInfo = get(".profile-name");
+const profileTitle = get(".profile-title");
+const profileImg = get(".profile-img");
+const btns = [...getAll(".icon-btn")];
+
+const fetchUsers = async () => {
+  try {
+    const resp = await fetch(url);
+    const data = await resp.json();
+    const profile = data.results[0];
+    //   destructuring
+    const { phone, email } = profile;
+    const { first, last } = profile.name;
+    let { date: birthday } = profile.dob;
+    birthday = birthday.slice(0, birthday.indexOf("T"));
+    birthday = birthday.replaceAll("-", "/");
+    const { password } = profile.login;
+    const { large: img } = profile.picture;
+    const { number, name: streetName } = profile.location.street;
+    return {
+      phone,
+      email,
+      name: `${first} ${last}`,
+      birthday,
+      password,
+      img,
+      address: `${number} ${streetName}`,
+    };
+  } catch (error) {}
+};
+
+const displayUsers = (user) => {
+  //   const birthday = user.birthday.slice(0, user.birthday.indexOf("T"));
+  profileImg.src = user.img;
+  profileInfo.textContent = user.name;
+  profileTitle.textContent = `My name is `;
+  btns.forEach((btn) => btn.classList.remove("active"));
+  btns[0].classList.add("active");
+  btns.forEach((btn) => {
+    const label = btn.dataset.label;
+    // console.log(label);
+    btn.addEventListener("click", () => {
+      profileTitle.textContent = `My ${label} is `;
+      profileInfo.textContent = user[label];
+      btns.forEach((btn) => btn.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+};
+
+const showUser = async () => {
+  const data = await fetchUsers();
+  //   console.log(data);
+  displayUsers(data);
+};
+
+window.addEventListener("DOMContentLoaded", showUser);
+randomuser.addEventListener("click", showUser);
