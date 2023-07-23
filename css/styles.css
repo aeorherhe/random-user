@@ -10,12 +10,12 @@
 
 :root {
   /* general variables */
-  --boxShadow: 0 0 5px rgb(250, 234, 230);
-  --boxShadow2: 0px 0px 50px rgba(150, 150, 150, 0.3);
+  --boxShadow: 0 0 20px rgb(118, 115, 115);
+  --boxShadow2: 0px 0px 50px rgba(98, 96, 96, 0.5);
   --transition: all 0.3s linear;
   --transition2: all 0.5s linear;
   --border: 2px solid #1789db;
-  --border2: 1px solid rgb(98, 96, 96, 0.5);
+  --border2: 1px solid rgba(98, 96, 96, 0.5);
   --border3: 2px solid rgb(9, 224, 88);
 
   /* variables for this project */
